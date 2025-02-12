@@ -1,3 +1,5 @@
 first commit changed again 
 branch newGithub
 second change after merge
+conflict1
+conflict2
