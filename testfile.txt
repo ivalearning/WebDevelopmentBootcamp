@@ -3,3 +3,4 @@ branch newGithub
 second change after merge
 conflict1
 conflict2
+conflict branch text
