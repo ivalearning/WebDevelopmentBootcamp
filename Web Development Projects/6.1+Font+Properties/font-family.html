@@ -32,10 +32,34 @@
     #fantasy {
       font-family: fantasy;
     }
+    
+    .work-sans-<uniquifier> {
+    font-family: "Work Sans", serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+  }
+  
+  .inconsolata-<uniquifier> {
+    font-family: "Inconsolata", serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100;
+  }
+  h1 {
+    font-family: "Work Sans", serif;
+  }
+
   </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
+  <h1 >Font Family</h1>
   <p id="helvetica">Helvetica</p>
   <p id="arial">Arial</p>
   <p id="serif">Serif</p>
