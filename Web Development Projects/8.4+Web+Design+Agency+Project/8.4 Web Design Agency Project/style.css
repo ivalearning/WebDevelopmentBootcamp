@@ -21,43 +21,42 @@ footer {
 .creative {
   color: midnightblue;
 }
+.tile-image {
+  height: 200px;
+  float: left;
+  margin-right: 30px;
+}
+.card {
+  display: inline-block;
+  width: 45%;
+}
 .left {
   float: left;
 }
 .right {
   float: right;
 }
-.card {
-  width: 45%;
-}
-.card img {
-  height: 200px;
-  float: left;
-  margin-right: 30px;
-}
+
 @media (max-width:680px) {
   .logo {
     width: 100px;
   }
   h1 {
     font-size: 2rem;
-    text-align: center;
   }
-.card {
-  width: 100%;
-  display: block;
-  text-align: justify;
-  margin-bottom: 20px;
+  .card {
+    width: 100%;
+    text-align: justify;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .card img {
+    width: 100%;
+    margin-bottom: 20px;
+    object-fit: cover;
+    display: inline;
+  }
 }
-.card img {
-  width: 100%;
-  margin-bottom: 10px;
-  display: inline;
-  object-fit: cover;
-}
-
-}
-
 
 
 /*  object-fit:
