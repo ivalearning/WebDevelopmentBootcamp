@@ -13,7 +13,12 @@
     .container {
       color: white;
       border: 5px solid gold;
-      display: flex;
+      display: inline-flex;
+      flex-direction: column;
+    }
+    /* all direct children of the class */
+    .container > *  {
+      flex-basis: 100px;
     }
 
     /*
