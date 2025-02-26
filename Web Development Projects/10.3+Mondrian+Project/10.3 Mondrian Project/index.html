@@ -19,11 +19,68 @@
     HINT: Remember you can't change the properties of grid lines.
     But grid lines are transparent!
     */
+    body {
+      display: flex;
+      justify-content: center;
+      flex-wrap: nowrap;
+      align-items: center;
+      height: 100vh;
+      margin: 0px;
+      padding: 0px;      
+    }
+    .container {
+      display: grid;
+      width: 748px;
+      height: 748px;
+      grid-template-rows: 414px 130px 155px 22px;
+      grid-template-columns: 320px 198px 153px 50px;
+      gap: 9px;
+      background-color: #000;
+    }
+    .item {
+      background-color:#F0F1EC;
+    }
+    .first {
+      background-color: #E72F24;
+    }
+    .second {
+      grid-column: 2 / span 3;
+    }
+    .third {
+      grid-row: 2 / 4;
+    }
+    .fourth {
+      grid-area: 2 / 2 / span 2 / span 2;
+    }
+    .fifth {
+      background-color: #004592;
+    }
+    .sixth {
+      grid-row: 3 / span 2;
+      margin-top: 10px;
+    }
+    .eigth {
+      background-color: #F9D01E;
+    }
+    .ninth {
+      background-color: #232629;
+    }
   </style>
 </head>
 
 <body>
   <!-- Write your HTML here -->
+   <div class="container">
+   <div class="first item">1</div>
+   <div class="second item">2</div>
+   <div class="third item">3</div>
+   <div class="fourth item">4</div>
+   <div class="fifth item">5</div>
+   <div class="sixth item">6</div>
+   <div class="seventh item">7</div>
+   <div class="eigth item">8</div>
+   <div class="ninth item">9</div>
+  </div>
 </body>
 
 </html>
