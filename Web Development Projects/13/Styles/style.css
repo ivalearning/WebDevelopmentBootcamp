@@ -1,0 +1,128 @@
+body {
+    text-align: center;
+}
+.footer {
+    background-color: #b2a899;
+}
+h1 {
+    font-family: "Inria Serif", serif;
+    font-weight: 700;
+    font-style: normal;
+    text-align: center;
+    font-size: 4rem;
+}
+
+h2, p {
+    font-family: "Tenor Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+.header {
+    padding: 50px;
+}
+.hero-container {
+    background-color: #d1c5b4;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+}
+.sectionheight {
+    height: 100vh;
+}
+.first {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 37.5% 25% 37.5%;
+    grid-template-rows: 2fr 1fr 2fr;
+}
+.whoisit {
+    grid-row: 1/3;
+    grid-column: 2/3;
+}
+.vineyard {
+    grid-row: 2/-1;
+    grid-column: 1/-1;
+}
+
+.bonjour {
+    
+    display: flex;
+    justify-content: center;  
+    margin-top: 100px;
+    background-color: white;
+}
+.unknown {
+    margin-top: 20px;
+}
+.me-container {
+    background-color: #b2a899;
+}
+.orangebox  {
+    margin: 3px;
+    border: 3px;
+    border-color: #c14600;
+    margin-bottom: 30px;
+}
+.centered {
+    text-align: center;
+}
+h2 {
+    color: #c85103;
+    font-weight: 700;
+    margin-top: 20px;
+}
+p {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+.skills {
+    background-color: #d1c5b4;
+    
+}
+.skill {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 1fr 0.5fr;
+    grid-template-rows: repeat(3,1fr);
+    gap: 10px;
+   padding-top: 20px;
+   padding-left: 100px;
+}
+.lightorange {
+    color: #ff9923;
+    font-size: 2rem;
+    font-weight: 500;
+}
+.spanhighlight {
+    color: #c85103;
+    font-weight: 500;
+}
+.image {
+    grid-column-start: 2;
+    margin-bottom: 50px;
+}
+.imagetext {
+    grid-column: 3/-2;
+    text-align: justify;
+}
+.topmargin {
+    margin-top: 50px;
+}
+.skill-image {
+    width: 300px;
+}
+
+@media (max-width:680px) {
+    
+    }   
+    .card {
+        width: 100%;
+        text-align: justify;
+        margin-bottom: 10px;
+      }
+      .card img {
+        width: 100%;
+        margin-bottom: 20px;
+        object-fit: cover;
+      }
+}
+
