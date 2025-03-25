@@ -1,0 +1,194 @@
+.top-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #d1c5b4;
+}
+h1 {
+    font-family: "Inria Serif", serif;
+    font-weight: 700;
+    font-style: normal;
+    text-align: center;
+    font-size: 3.5rem;
+}
+h2 {
+    font-family: "Tenor Sans", sans-serif;
+    color: #c85103;
+    font-weight: 700;
+    margin-top: 20px;
+    font-size: 2rem;
+}
+p {
+    font-family: "Tenor Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+.do-u-know-me-container {
+    display: grid;
+    height: 686px;
+    width: 1400px;
+    grid-row: 20% 30% 10% 40%;
+    grid-template-columns: 38.5% 23% 38.5%; 
+    margin: 0;
+    padding: 0;
+}
+.top-header {
+    height: 150px;
+    grid-row: 1/2;
+    grid-column: 1/span 3;
+    margin-bottom: 100px;
+}
+.top-bgrd-left {
+    height: 175px;   
+    grid-row: 2/3;
+    grid-column: 1/2;
+}
+.top-bgrd-right {
+    grid-row: 2/3;
+    grid-column: 3/-1;  
+    height: 175px;    
+}
+.top-vineyard {
+    max-height: 500px;
+    grid-row: 3/5;
+    grid-column: 1/span 3;
+}
+.top-who {
+    grid-row: 2/4;
+    grid-column: 2/3;
+    z-index: 1;
+}
+.who-img {
+    display: flex;
+    justify-content: center;
+}
+.about-me-section {
+
+}
+.about-me-container {
+    display: flex;
+    justify-content: center;
+    height: 80vh;
+    background-color: white;
+}
+.about-me-textbox {
+    text-align: center;
+    padding: 10px;
+    margin-top: 30px;
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10vh;
+}
+.about-me-box {
+    background-color:  #d1c5b4;
+}
+.about-me-innerbox {
+    background-color: white;
+    padding: 50px;
+    width: 40vw;
+    margin: 5px;
+    height: 56vh;
+}
+.unknown {
+    margin-top: 20px;
+}
+.about-me-footer {
+    background-color: #b2a899;
+    height: 20vh;
+}
+.skills-section {
+    background-color: #d1c5b4;
+}
+.main {
+    display: flex;
+    justify-content: space-evenly;    
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+.left {
+    display: inline-block;
+    width: 45%;
+    float: left;
+
+}
+.skill-image {
+    float: left;
+    margin-right: 100px;
+}
+.centered {
+    text-align: center;
+}
+.lightorange {
+    color: #ff9923;
+    font-size: 2rem;
+    font-weight: 500;
+}
+.help-section {
+    height: 100vh;
+}
+.help {
+    background-color: #b2a899;
+    color: white;
+    border-radius: 8px;
+    font-family: "Tenor Sans", sans-serif;
+    font-size: 20px;
+    border: 0;
+    padding: 15px;
+    margin-top: 180px;
+}
+.span-highlight {
+    color: #c85103;
+    font-weight: 500;
+}
+.footer-section {
+    background-color: #b2a899;
+    height: 100px;
+}
+#footer {
+    padding-top: 30px;
+    padding-left: 70px;
+}
+.light-text {
+    color: rgba(33, 37, 41, 0.75);
+    font-size:smaller;
+}
+
+@media (max-width: 680px) {
+    .main {
+        height: auto;
+    }
+    .left {
+        width: 100%;
+        text-align: justify;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        display: block;
+      }
+      .left img {
+        width: 100%;
+        margin-bottom: 20px;
+        object-fit:cover;
+        display: inline;
+      }
+    .left > p {
+        text-align: justify;
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+    .about-me-innerbox {
+        padding: 40px;
+        height: fit-content;
+    }
+    .about-me-innerbox > p {
+        font-size: 1.1rem;
+    }
+    .about-me-footer {
+        height: 10vh;
+    }
+}

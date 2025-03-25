@@ -1,0 +1,46 @@
+.top-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #d1c5b4;
+}
+.do-u-know-me-container {
+    display: grid;
+    height: 550px;
+    width: 1910px;
+    grid-row: 137px 206px 137px 206px;
+    grid-template-columns: 480px 285px 480px; 
+    margin: 0;
+    padding: 0;
+}
+.top-header {
+    background-color: aliceblue;
+    height: 137px;
+    grid-row: 1/2;
+    grid-column: 1/span 3;
+}
+.top-bgrd-left {
+    background-color: blue;
+    height: 206px;
+    grid-row: 2/3;
+    grid-column: 1/2;
+}
+.top-bgrd-right {
+    background-color: blue;
+    grid-row: 2/3;
+    grid-column: 3/-1;    
+    height: 206px;
+}
+.top-vineyard {
+    height: 206px;
+    grid-row: 3/5;
+    grid-column: 1/span 3;
+    background-color: orange;
+}
+.top-who {
+    background-color: blueviolet;
+    grid-row: 2/4;
+    grid-column: 2/3;
+    z-index: 1;
+}
