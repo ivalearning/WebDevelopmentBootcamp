@@ -1,0 +1,590 @@
+var myName = "Irena";
+alert(myName);
+var yourName = prompt("What is your name?");
+alert("My name is " +myName + ". " + " Welcome " + yourName + "!"); 
+
+var message = prompt("Write your message");
+var charCount = message.length;
+var charNotUsed = 140 - charCount;
+alert("Your text is " + charCount + " characters long. You only have " + charNotUsed + " characters left.");
+var message = prompt("Write your message");
+var charCount = message.length;
+var charNotUsed = 140 - charCount;
+alert("Your text is " + charCount + " characters long. You only have " + charNotUsed + " characters left.");
+alert("Your final message will be: " + message.slice(0,140));
+
+
+
+nebo jako 1 radek zapsani a uriznuti zpravy 
+
+alert("Your text is: " + prompt("Write your message").slice(0,140));
+
+
+// memo memo memo memo memo memo memo memo memo memo memo memo memo memo memo memo memo memo memo memo memo memo memo memo memo memo memo here/too long message
+
+
+
+// var name = "Irena";
+// name.toUpperCase();
+// name.toLowerCase();
+
+
+var yourName = prompt("Write your name.").toLowerCase();
+var name1stChar = yourName.slice(0,1);
+name1stChar = name1stChar.toUpperCase();
+var nameRest = yourName.slice(1,yourName.length);
+alert("Hello " + name1stChar + nameRest);
+
+
+Karel		https://stanford.edu/~cpiech/karel/ide.html
+-----------------------------------------------------------
+function main(){
+   take4steps();
+   turnLeft();
+   take4steps();  
+ 
+}
+function take4steps() {
+   move();
+   move();
+   move();
+   move();
+}			nepridava se strednik!
+
+
+
+function main(){
+   putOneBeeper();
+   putOneBeeper();
+   putOneBeeper();
+   putOneBeeper();
+   putBeeper();
+}
+function putOneBeeper() {
+   putBeeper();
+   move();
+   turnLeft();
+   move();
+   turnRight();
+}
+
+
+
+
+
+
+function main(){
+   twoRowsMove();
+   twoRowsMove();
+   beeperTwoSteps();
+   beeperTwoSteps();
+   putBeeper();
+
+}
+function beeperTwoSteps() {
+   putBeeper();
+   move();
+   move();
+}
+function beeperOneSteps() {
+   putBeeper();
+   move();
+}
+function leftTurn() {
+   putBeeper();
+   turnLeft();
+   move();
+   turnLeft();
+   move();
+}
+function rightTurn() {
+   putBeeper();
+   move();
+   turnRight();
+   move();
+   turnRight();
+}
+function twoRowsMove() {
+   beeperTwoSteps();
+   beeperTwoSteps();
+   leftTurn();
+   beeperTwoSteps();  
+   rightTurn();
+}
+
+
+
+function getMilk(total) {   
+  console.log("leaveHouse");
+  console.log("moveRight");
+  console.log("moveRight");
+  console.log("moveUp");
+  console.log("moveUp");
+  console.log("moveUp");
+  console.log("moveUp");
+  console.log("moveRight");
+  console.log("moveRight");
+  console.log("Buy " + Math.floor(total / 1.5) + " bottles of milk.")
+  console.log("moveLeft");
+  console.log("moveLeft");
+  console.log("moveDown");
+  console.log("moveDown");
+  console.log("moveDown");
+  console.log("moveDown");
+  console.log("moveLeft");
+  console.log("moveLeft");
+  console.log("enterHouse");
+}
+getMilk(5);
+
+
+
+function lifeInWeeks(age) {
+    var x = (90 - age) * 365;
+    var y = (90 - age) * 52;
+    var z = (90 - age) * 12;
+    alert("You have " + x + " days, " + y + " weeks, and " + z + " months left.");
+}
+lifeInWeeks(55);
+
+
+function getMilk(total, costPerBottle) {   
+  console.log("leaveHouse");
+  console.log("moveRight");
+  console.log("moveRight");
+  console.log("moveUp");
+  console.log("moveUp");
+  console.log("moveUp");
+  console.log("moveUp");
+  console.log("moveRight");
+  console.log("moveRight");
+  
+  console.log("Buy " + calcBottles(total, costPerBottle) + " bottles of milk.")
+  console.log("moveLeft");
+  console.log("moveLeft");
+  console.log("moveDown");
+  console.log("moveDown");
+  console.log("moveDown");
+  console.log("moveDown");
+  console.log("moveLeft");
+  console.log("moveLeft");
+  console.log("enterHouse");
+  return calcChange(total,costPerBottle);  
+}
+getMilk(10,1.5);
+
+function calcBottles(startingAmount, costPerBottle) {
+  var numberOfBottles = Math.floor(startingAmount / costPerBottle);
+  return numberOfBottles;  
+}
+function calcChange(total, costPerBottle) {
+  var change = total % costPerBottle;
+  return change;
+}
+
+=== rovna se kontroluje i datovy typ
+== rovna se, ale muye byt jiny datovy typ
+
+var a=1;
+var b="1";
+
+== bude true, === bude false
+
+&& AND
+|| OR
+! not
+
+
+LOVE MATCH
+------------------------
+
+//prompt("Enter her name:");
+//prompt("Enter his name:");
+var perc = Math.random();
+perc = perc * 100;
+perc = Math.floor(perc) + 1;
+if (perc === 100) {
+    alert("Your love score is " + perc +  "%. An impossible match!");
+}
+if (perc >70 && perc < 100) {
+    alert("Your love score is " + perc +  "%. A perfect match!");
+} 
+if (perc >40 && perc <= 70) {
+    alert("Your love score is " + perc +  "%.");
+}
+if (perc < 40) {
+    alert("Your love score is " + perc + "%. Too bad :(");
+}
+
+
+BMI
+----------
+function bmiCalculator (weight, height) {
+    var bmi = weight / Math.pow(height,2);
+    bmi = Math.round(bmi);
+    var interpretation;
+    if (bmi < 18.5) {
+        interpretation = "Your BMI is " + bmi + ", so you are underweight."
+    }
+    if (bmi >= 18.5 && bmi <= 24.9) {
+        interpretation = "Your BMI is " + bmi + ", so you have a normal weight."   
+    }
+    if (bmi > 24.9) {
+        interpretation = "Your BMI is " + bmi + ", so you are overweight."   
+    }
+    return interpretation;
+    }
+bmiCalculator(45, 1.7);
+
+
+ARRAYS
+--------------
+kontroluje jmeno proti seznamu pozvanych hostu
+
+var name = prompt("What's your name?");
+var nameList = ["Irena", "Anna", "Jana", "Jarmila"];
+
+if (nameList.includes(name)) {
+    alert("Welcome");
+}
+else {
+    alert("Sorry, not invited");
+}
+
+
+
+FIZZ BUZZ
+-------------------
+
+var output = [];
+var nr = 1;
+
+function fizzBuzz() {  
+    if (nr % 3 === 0 && nr % 5 === 0) {
+        output.push("FizzBuzz")
+    }
+    else if (nr % 3 === 0) {
+        output.push("Fizz");
+    }
+    else if (nr % 5 === 0) {
+           output.push("Buzz");
+    }
+    else {
+        output.push(nr);
+    }
+    console.log(output);
+    nr++;
+}
+
+
+LEAP YEAR
+---------
+function isLeap(year) {
+       
+    var year;
+    if (year % 4 !== 0) {
+        console.log("Not leap year.")
+    }
+    if (year % 4 === 0) {
+        if (year % 100 !== 0) {
+            console.log("Leap year.")
+        if (year % 100 === 0) {
+            if (year % 400 !== 0) {
+                console.log("Not leap year.")
+            }
+            if (year % 400 === 0) {
+                console.log("Leap year.")    
+            }  
+        }            
+        }        
+    }
+
+}
+
+isLeap2(1948);
+
+
+
+
+
+Who is paying - random choice
+-------------------------------------
+
+function whosPaying(names) {
+    
+    var names = ["Ben", "Bill", "Jill", "Pete"];
+    var count = names.length;
+    var pick = Math.floor(Math.random() * count);
+    var message = names[pick] + " is going to buy lunch today!";
+    
+return message;
+}
+
+
+WHILE
+-----------------
+var output = [];
+var nr = 1;
+
+function fizzBuzz() {  
+    while(nr<=100) {
+    if (nr % 3 === 0 && nr % 5 === 0) {
+        output.push("FizzBuzz")
+    }
+    else if (nr % 3 === 0) {
+        output.push("Fizz");
+    }
+    else if (nr % 5 === 0) {
+           output.push("Buzz");
+    }
+    else {
+        output.push(nr);
+    }
+   
+    nr++;
+}
+	console.log(output);
+
+}
+
+
+
+BEER
+--------------
+var bottlesOn = 99;
+
+function beer() {
+   while(bottlesOn >= 1) {
+    var bottlesRest = bottlesOn -1;
+       if (bottlesOn === 1) {
+                console.log(bottlesOn + " bottle of beer on the wall, " + bottlesOn +
+                          " bottle of beer. Take one down and pass it around, no more bottles of beer on the wall.");      
+       } else {
+                console.log(bottlesOn + " bottles of beer on the wall, " + bottlesOn +" bottles of beer. Take one down and pass it around, " 
+                + bottlesRest + " bottles of beer on the wall.");
+       }
+    bottlesOn--;
+    
+    console.log(bottlesOn);
+   }
+    console.log("No more bottles of beer on the wall, no more bottles of beer. Go to the store and buy some more, 99 bottles of beer on the wall.")
+}
+
+Lyrics of the song 99 Bottles of Beer
+99 bottles of beer on the wall, 99 bottles of beer.
+Take one down and pass it around, 98 bottles of beer on the wall.
+
+98 bottles of beer on the wall, 98 bottles of beer.
+Take one down and pass it around, 97 bottles of beer on the wall.
+
+97 bottles of beer on the wall, 97 bottles of beer.
+Take one down and pass it around, 96 bottles of beer on the wall.
+.
+.
+.
+2 bottles of beer on the wall, 2 bottles of beer.
+Take one down and pass it around, 1 bottle of beer on the wall.
+
+1 bottle of beer on the wall, 1 bottle of beer.
+Take one down and pass it around, no more bottles of beer on the wall.
+
+No more bottles of beer on the wall, no more bottles of beer.
+Go to the store and buy some more, 99 bottles of beer on the wall.
+
+
+FOR LOOP
+--------------------------
+
+for(start, end, change) {
+	do something
+}
+
+for( var i=0, i<2, i++) {
+	console.log(i);
+}
+i++ se provede az poslozene zavorce
+
+
+var output = [];
+
+function fizzBuzz() {  
+    for(var  nr = 1;  nr<=100; nr++) {
+    if (nr % 3 === 0 && nr % 5 === 0) {
+        output.push("FizzBuzz")
+    }
+    else if (nr % 3 === 0) {
+        output.push("Fizz");
+    }
+    else if (nr % 5 === 0) {
+           output.push("Buzz");
+    }
+    else {
+        output.push(nr);
+    }
+}
+	console.log(output);
+}
+
+
+while(something is true) {				for(i=0; i<2; i++) {
+   //Do something while it is true			   //Do something repeatedly
+}							}
+
+
+FIBONACCI SEQUENCE
+--------------------------
+
+    var output = [];
+    if (n === 1) {
+        output = [0];  
+    }
+    else if (n === 2) {
+	output = [0,1];
+    }
+    else  {
+        output = [0,1];
+        
+        var first = 0;
+        var second = 1;       
+
+        while(output.length < n) {
+        var next = first + second;
+        output.push(next);
+        first = second;
+        second = next;  
+        output.length;
+        }
+    }
+    return output;
+}
+
+
+	function fibonacciGenerator (n) {		--reseni	
+	var output = [];
+    	if (n === 1) {
+            output = [0]; 
+	}
+    	else if (n === 2) {
+            output = [0,1]; 
+	}
+	else {
+	    output = [0,1]; 
+	    for(var i = 2; i < n; i++) {
+	    output.push(output[output.length -2] + output[output.length -1]);
+	    }
+	}
+	return output;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
