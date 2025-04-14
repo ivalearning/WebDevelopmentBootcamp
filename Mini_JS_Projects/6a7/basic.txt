@@ -1,0 +1,94 @@
+console.log("text, ktery se na zobrazit")
+
+data types
+--------------------------------------------
+string  '  ' nebo  "  "
+number
+boolean
+undefined
+null
+object
+
+variables
+-------------------
+var name  = "value"
+const
+let
+
+
+user input
+------------------
+v terminalu npm install prompt-sync
+
+const prompt = require("prompt-sync")()
+const name = prompt("Whats your name? ")  mezera na konci je schvalne, aby zustal kurzor pro zapis odpovedi
+console.log("Hello" , name, ", welcome") -- prida mezery
+nebo
+console.log("Hello " + name + " welcome") -- je potreba pridat mezery
+
+const shouldWePlay = prompt('Do u wanna play? ')
+
+const condition = shouldWePlay.toLowerCase() === "yes"
+console.log(condition)
+
+if (condition) {
+    prompt("Lets play")
+}
+
+nebo lepe
+if (shouldWePlay.toLowerCase() === "yes") {
+    prompt("Lets play")
+} else if (shouldWePlay.toLowerCase() === "no") {
+    prompt('Too bad' )
+} else {
+    prompt('Invalid input...' )
+}
+
+
+while
+-----
+zapise cislo od 0 po 9
+
+let i = 0;
+while (i<10) {
+    i++;
+    console.log(i)
+}
+
+nebo totez
+
+let i = 0;
+while (true) {
+    console.log(i);
+    i++;
+    if (i===10) break;
+}
+
+
+preskoci zapsani cisla 5
+
+let i = 0;
+while (i<10) {
+    i++;
+
+    if (i===5) continue //continue=break
+
+    console.log(i)
+}
+
+
+arrays []
+--------
+length
+push prida 1 nakonec
+pop odebere 1 posledni
+splice(start, count) odebere count od daneho zacatku
+
+FOR
+--------
+for (let i=0; i<10; i++) {}
+
+const arr = ["apple", "pear", "peach"]
+for (let i=0, i< arr.length, i++) {
+    console.log(arr[i])
+}

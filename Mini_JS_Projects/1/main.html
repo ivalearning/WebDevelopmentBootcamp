@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background color picker</title>
+    <style>
+        button {
+            height: 50px;
+            min-width: 100px;
+            border-radius: 5px;
+            margin: 5px;
+            font-size: 1.5rem;
+            padding: 10px;  
+        }
+        #red {
+            background-color: red;
+        }
+        #green {
+            background-color: green;
+        }
+        #blue {
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pick the background color</h1>
+    <button id="red" onclick="setColor('red')">Red</button>
+    <button id="green" onclick="setColor('green')">Green</button>
+    <button id="blue" onclick="setColor('blue')">Blue</button>
+    <button onclick="randomColor()">Random</button>
+
+    <script src="./index.js"></script>
+</body>
+</html>
