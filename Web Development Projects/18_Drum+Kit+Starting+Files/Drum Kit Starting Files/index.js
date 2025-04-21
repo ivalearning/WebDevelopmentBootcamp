@@ -37,6 +37,14 @@ function playSound(note) {
     }    
 }
 
+function animateButton(key) {
+    var activeButton = document.querySelector("." + key);
+        activeButton.classList.add("pressed");
+
+        setTimeout(function() {
+        activeButton.classList.remove("pressed");
+        } , 100);
+    }
 
 var numberOfButtons = document.querySelectorAll(".drum").length;
 
@@ -45,6 +53,7 @@ for(var i=0; i<numberOfButtons; i++) {
 document.querySelectorAll(".drum")[i].addEventListener("click", function() {
     var letter = this.innerHTML;
     playSound(letter); 
+    animateButton(letter)
     
     this.style.color = "white"
     } );
@@ -52,5 +61,6 @@ document.querySelectorAll(".drum")[i].addEventListener("click", function() {
 
 document.addEventListener("keydown" , function(event) {
     playSound(event.key);
+    animateButton(event.key)
 });
 
