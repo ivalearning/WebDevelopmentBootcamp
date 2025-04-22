@@ -1,7 +1,8 @@
 alert("start");
 /* Qs - this?
-switch VS suggested different syntax with value:
+setTimeout na barvu
 */
+
 
 function playSound(note) {
     switch (note) {
@@ -42,8 +43,15 @@ function animateButton(key) {
         activeButton.classList.add("pressed");
 
         setTimeout(function() {
-        activeButton.classList.remove("pressed");
-        } , 100);
+        activeButton.classList.remove("pressed")
+         } , 100);
+        
+         setTimeout(function() {
+            activeButton.removeAttribute("style")
+         } , 300)
+
+        //activeButton.removeAttribute("style");
+
     }
 
 var numberOfButtons = document.querySelectorAll(".drum").length;
@@ -52,10 +60,12 @@ var numberOfButtons = document.querySelectorAll(".drum").length;
 for(var i=0; i<numberOfButtons; i++) {
 document.querySelectorAll(".drum")[i].addEventListener("click", function() {
     var letter = this.innerHTML;
+    this.style.color = "white"
     playSound(letter); 
     animateButton(letter)
     
-    this.style.color = "white"
+    //this.style.color = "white"
+  
     } );
 }
 
