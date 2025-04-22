@@ -1,6 +1,6 @@
-alert("start");
+//alert("start");
 /* Qs - this?
-setTimeout na barvu
+
 */
 
 
@@ -49,9 +49,6 @@ function animateButton(key) {
          setTimeout(function() {
             activeButton.removeAttribute("style")
          } , 300)
-
-        //activeButton.removeAttribute("style");
-
     }
 
 var numberOfButtons = document.querySelectorAll(".drum").length;
@@ -60,12 +57,11 @@ var numberOfButtons = document.querySelectorAll(".drum").length;
 for(var i=0; i<numberOfButtons; i++) {
 document.querySelectorAll(".drum")[i].addEventListener("click", function() {
     var letter = this.innerHTML;
-    this.style.color = "white"
-    playSound(letter); 
-    animateButton(letter)
     
-    //this.style.color = "white"
-  
+    this.style.color = "white";
+        
+    playSound(letter); 
+    animateButton(letter)  
     } );
 }
 
