@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cities</title>
+</head>
+<body>
+
+
+    <script>
+        var bestCities = ["london", "prague", "barcelona"];
+        var userCity = prompt("What is your city: ").toLowerCase();
+        
+        //alert(bestCities);
+
+        var bestCityCount = bestCities.length;
+        var cityFound = false;
+
+        if (bestCities.includes(userCity)) {
+                alert("the best city");
+            } else {
+                alert("not on the list")
+            }
+        
+            for (let i = 0; i < bestCities.length; i++) {
+                
+                const city = bestCities[i];
+                if (city === userCity) {
+                    alert("THE best city");
+                    cityFound = true;
+                    //alert(cityFound);
+                    break;
+                }    //else { alert("not")}             
+                //alert(city);
+                
+            } 
+
+ 
+
+    </script>
+    
+</body>
+</html>

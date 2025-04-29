@@ -5,6 +5,7 @@
 
 
 function playSound(note) {
+    console.log(this);
     switch (note) {
         case "w" :
             var tom1 = new Audio('./sounds/tom-1.mp3');
@@ -60,7 +61,7 @@ document.querySelectorAll(".drum")[i].addEventListener("click", function() {
     
     this.style.color = "white";
         
-    playSound(letter); 
+    playSound(letter).bind(this); 
     animateButton(letter)  
     } );
 }
