@@ -7,8 +7,8 @@ console.log(colorsCount);
 
 btn.addEventListener("click", function() {
 
-    const randomNumber = Math.floor(Math.random() * colorsCount) ;
-    document.body.style.backgroundColor = colors[randomNumber];
-    color.textContent = colors[randomNumber]
+    const randomItem = Math.floor(Math.random() * colorsCount) ;
+    document.body.style.backgroundColor = colors[randomItem];
+    color.textContent = colors[randomItem]
     }
 )

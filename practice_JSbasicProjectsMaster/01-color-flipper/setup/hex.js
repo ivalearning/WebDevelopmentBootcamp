@@ -6,12 +6,12 @@ const color = document.querySelector(".color");
 btn.addEventListener("click", function() {
     let hexColor ="#";
     for (let index = 0; index < 6; index++) {
-        const element = getRandomNumber();
+        const element = getRandomArrayItem();
         hexColor += hex[element]            //+= pridava ke stringu
     }
     document.body.style.backgroundColor = hexColor;
     color.textContent = hexColor;
 })
-function getRandomNumber() {
+function getRandomArrayItem() {
     return Math.floor(Math.random() * hex.length);
 }
