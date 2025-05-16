@@ -72,3 +72,64 @@ const menu = [
     desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
   },
 ];
+
+
+const allItemsSection = document.querySelector('.section-center');
+const filterButtons = document.querySelectorAll('.filter-btn');
+
+// load items
+window.addEventListener('DOMContentLoaded', function(){
+  displayMenuItems(menu);
+});
+
+//filter items
+
+filterButtons.forEach( function(btn) {
+  btn.addEventListener('click', function(e) {
+    //console.log(e.currentTarget.dataset.category);
+
+    const category = e.currentTarget.dataset.category;
+    //console.log(category);
+  
+    const itemCategory = menu.filter( function(menuItem) {
+      //console.log(menuItem.category);
+      if (menuItem.category === category) {
+        return menuItem;
+      }       
+    });
+
+
+    if (category === 'all') {
+      displayMenuItems(menu);
+    } 
+    else {
+      displayMenuItems(itemCategory);      
+    }
+  })
+})
+
+
+function displayMenuItems(menuItems) {
+  let displayMenu = menuItems.map( function(item) {
+    //console.log(item);
+
+    return `<article class="menu-item">
+          <img src=${item.img} class="photo" alt=${item.title}>
+
+          <div class="item-info">
+            <header>
+              <h4>${item.title}</h4>
+              <h4 class="price">${item.price}Kč</h4>              
+            </header>
+            <p class="item-text">${item.desc}
+            </p>
+          </div>
+         </article>`;
+  })
+  
+  displayMenu = displayMenu.join(""); //uvozovky jsou tam proto, protoze jinak se mezi array items pridavaji carky
+//console.log(displayMenu);
+allItemsSection.innerHTML = displayMenu;
+
+
+}

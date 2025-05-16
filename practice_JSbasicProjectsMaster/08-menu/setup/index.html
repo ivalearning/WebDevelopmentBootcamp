@@ -13,7 +13,49 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <h1>menu project</h1>
+    <section class="menu">
+      <!-- title -->
+       <div class="title">
+        <h2>Our menu</h2>
+        <div class="underline"></div>
+       </div>
+
+      <!-- filter buttons -->
+       <div class="btn-container">
+        <button type="button" class="filter-btn" data-category="all">All</button>               <!--pro data set musi zacinat data- dal libovolne --> 
+        <button type="button" class="filter-btn" data-category="breakfast">Breakfast</button>
+        <button type="button" class="filter-btn" data-category="lunch">Lunch</button>
+        <button type="button" class="filter-btn" data-category="shakes">Shakes</button>
+
+       </div>
+
+      <!-- menu items -->
+       <div class="section-center">
+
+        <!-- menu item -->
+         <article class="menu-item">
+          <img src="./menu-item.jpeg" class="photo" alt="menu item">
+
+          <div class="item-info">
+            <header>
+              <h4>Pancakes</h4>
+              <h4 class="price">60Kc</h4>              
+            </header>
+            <p class="item-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+              Esse cupiditate itaque quo sunt magni ad temporibus quae quas 
+              ipsa consectetur?
+            </p>
+          </div>
+         </article>
+        <!-- end of menu item -->
+
+       </div>
+
+
+
+
+
+    </section>
     <!-- javascript -->
     <script src="app.js"></script>
   </body>

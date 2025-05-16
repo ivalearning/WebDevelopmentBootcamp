@@ -25,9 +25,9 @@ questions.forEach( function(q) {
     btn.addEventListener('click', function() {
 
         questions.forEach( function(allQuestions) {
-            //if (allQuestions!=q) {
+            if (allQuestions!=q) {
                 allQuestions.classList.remove('show-text');
-           // }
+            }
         })
         q.classList.toggle('show-text');
         //console.log(questions);
