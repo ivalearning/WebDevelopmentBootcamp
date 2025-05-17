@@ -71,43 +71,27 @@ const menu = [
     img: "./images/item-9.jpeg",
     desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
   },
+  {
+    id: 10,
+    title: "steak",
+    category: "dinner",
+    price: 36.99,
+    img: "./images/item-10.jpeg",
+    desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
+  },
 ];
 
 
 const allItemsSection = document.querySelector('.section-center');
-const filterButtons = document.querySelectorAll('.filter-btn');
+const buttonContainer = document.querySelector('.btn-container');
 
 // load items
 window.addEventListener('DOMContentLoaded', function(){
   displayMenuItems(menu);
+  displayButtons();
 });
 
-//filter items
-
-filterButtons.forEach( function(btn) {
-  btn.addEventListener('click', function(e) {
-    //console.log(e.currentTarget.dataset.category);
-
-    const category = e.currentTarget.dataset.category;
-    //console.log(category);
-  
-    const itemCategory = menu.filter( function(menuItem) {
-      //console.log(menuItem.category);
-      if (menuItem.category === category) {
-        return menuItem;
-      }       
-    });
-
-
-    if (category === 'all') {
-      displayMenuItems(menu);
-    } 
-    else {
-      displayMenuItems(itemCategory);      
-    }
-  })
-})
-
+// priravi html string pro jednotlive menu items a pouzije do allItemsSection
 
 function displayMenuItems(menuItems) {
   let displayMenu = menuItems.map( function(item) {
@@ -128,8 +112,60 @@ function displayMenuItems(menuItems) {
   })
   
   displayMenu = displayMenu.join(""); //uvozovky jsou tam proto, protoze jinak se mezi array items pridavaji carky
-//console.log(displayMenu);
-allItemsSection.innerHTML = displayMenu;
+  //console.log(displayMenu);
+  allItemsSection.innerHTML = displayMenu;
+};
 
 
+// vybere unique buttons z menu array category atributu a priravi html string pro jednotlive buttons a pouzije do buttonContainer
+
+// reduce ma 2 parametry a initial value, do init value se obvykle dava 0, my potrebujeme pridat all,ktery neni v kategoriich
+// jmena jsou libovolna, ale vzdycky musim vracet prvni=vsechny values
+
+function displayButtons() {
+  const categories = menu.reduce( function(values, item) {    
+  
+    if (!values.includes(item.category)) {
+      values.push(item.category)
+      }
+    return values;                                            
+    }, ['all'])
+  //console.log(categories);
+  
+  const categoryButtons = categories.map( function(cat) {
+    return `<button type="button" class="filter-btn" data-category=${cat}>${cat}</button>  `
+  }).join("");
+  
+  buttonContainer.innerHTML = categoryButtons;
+  const filterButtons = document.querySelectorAll('.filter-btn');  // muzu pouzit buttonContainer.query misto document.query...
+  
+  //filter items
+  
+  filterButtons.forEach( function(btn) {
+    btn.addEventListener('click', function(e) {
+      //console.log(e.currentTarget.dataset.category);
+  
+      const category = e.currentTarget.dataset.category;
+      //console.log(category);
+    
+      const itemCategory = menu.filter( function(menuItem) {
+        //console.log(menuItem.category);
+        if (menuItem.category === category) {
+          return menuItem;
+        }       
+      });
+
+      if (category === 'all') {
+        displayMenuItems(menu);
+      } 
+      else {
+        displayMenuItems(itemCategory);      
+      }
+    });
+  });
 }
+
+/* const categories = menu.map( function(item) {
+  return item.category;  
+})
+//console.log(categories);  vybere kategorie, ale nejsou unique     */
