@@ -1,4 +1,4 @@
-// lorem text
+// lorem text, odstavce oddelene carkou
 const text = [
   `Jelly sweet roll jelly beans biscuit pie macaroon chocolate donut. Carrot cake caramels pie sweet apple pie tiramisu carrot cake. Marzipan marshmallow croissant tootsie roll lollipop. Cupcake lemon drops bear claw gummies. Jelly bear claw gummi bears lollipop cotton candy gummi bears chocolate bar cake cookie. Cupcake muffin danish muffin cookie gummies. Jelly beans tiramisu pudding. Toffee soufflé chocolate cake pastry brownie. Oat cake halvah sweet roll cotton candy croissant lollipop. Macaroon tiramisu chocolate bar candy candy carrot cake jelly sweet. Gummies croissant macaroon dessert. Chocolate cake dragée pie.`,
   `Next level tbh everyday carry, blog copper mug forage kitsch roof party pickled hammock kale chips tofu. Etsy shoreditch 8-bit microdosing, XOXO viral butcher banh mi humblebrag listicle woke bicycle rights brunch before they sold out ramps. Twee shabby chic taiyaki flannel, enamel pin venmo vape four loko. Hexagon kale chips typewriter kitsch 8-bit organic plaid small batch keffiyeh ethical banh mi narwhal echo park cronut.`,
@@ -11,3 +11,41 @@ I just told you! You've killed me! Fry! Quit doing the right thing, you jerk! Mi
   `Man braid celiac synth freegan readymade, pitchfork fam salvia waistcoat lomo bitters gentrify four loko. Pitchfork semiotics post-ironic vegan. Tofu meditation microdosing hashtag semiotics venmo. Flexitarian vape tilde taiyaki. Prism poutine farm-to-table, messenger bag vegan taxidermy tattooed sartorial squid jean shorts fixie selvage trust fund vape.`,
   `Rutters Plate Fleet boom chandler Brethren of the Coast handsomely lookout marooned brigantine knave. Buccaneer gangway jack rum loot spyglass line Jack Tar fore gaff. Gaff topmast scuttle ballast swab draught measured fer yer chains dance the hempen jig Chain Shot yardarm.`,
 ];
+
+const generateBtn = document.querySelector('.btn');
+const loremText = document.querySelector('.lorem-text');
+const input = document.getElementById('amount');
+const form = document.querySelector('.lorem-form');
+
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const nrOfParagraphs = parseInt(input.value);
+  console.log(nrOfParagraphs);
+  console.log(typeof nrOfParagraphs);
+
+  const randomLorem = Math.floor(Math.random()*text.length);
+  //console.log(randomLorem);
+  
+
+  // empty value
+  // negative value
+  // more than 9
+
+  if (isNaN(nrOfParagraphs) || nrOfParagraphs < 0 || nrOfParagraphs > 9) {
+    loremText.innerHTML = `<p class="result">${text[randomLorem]}</p>`;
+  } else {
+    // slice 2 parametry - zacatek a konec, do tempText si ulozim retezec, ktery chci zobrazit (odstavce)
+    
+    let tempText = text.slice(0,nrOfParagraphs);
+
+    tempText = tempText.map( function(paragraf) {
+      return `<p clas="result">${paragraf}</p>`
+    });
+
+    tempText = tempText.join(""); // na odstraneni carek mezi jednotlivymi hodnotami listu
+
+    loremText.innerHTML = tempText;
+  }
+  
+});
