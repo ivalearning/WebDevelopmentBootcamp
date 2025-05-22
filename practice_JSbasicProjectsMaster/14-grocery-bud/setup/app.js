@@ -36,20 +36,19 @@ function addItem(e) {
         //console.log('novy zaznam');
 
         // vytvoreni zaznamu
-        createListOfRecords(id,input);
- 
+        createRecord(id,input);
+
         // display alert
         displayAlert('item added', 'success');
 
         // show container
         listContainer.classList.add('show-container');
     
-
         // add to local storage
-        let newItem = createListOfRecords();
-        addToLocalStorage(id, newItem);                                                 
+        addToLocalStorage(id, input);                                                 
         setBackToDefault();
         }
+
    else if (input !== '' && editFlag === true) {    // zkracene if (input && editFlag)
         //console.log('upravovany zaznam');
 
@@ -61,6 +60,7 @@ function addItem(e) {
         editLocalStorage(editId, input);                                            
         setBackToDefault();
     }
+
    else {
         //console.log('empty value');
         displayAlert('empty value', 'danger');    
@@ -77,12 +77,6 @@ function displayAlert(msg, color) {
         alert.classList.remove(`alert-${color}`);
     }, 1000)
 }
-
-function addToLocalStorage(id,value) {
-    //console.log('saved');
-    
-
-};
 
 function setBackToDefault() {
     //console.log('default');
@@ -112,18 +106,20 @@ function deleteItem(e) {
     const id = element.dataset.id                                               //   ID
 
     list.removeChild(element);
-    removeFromLocalStorage(id);
-
+    
     //pokud po smazani nezbyva zadna polozka, tak i 
     if (list.children.length === 0) {
         listContainer.classList.remove('show-container');
     }
     displayAlert('item removed', 'danger');
     setBackToDefault();
-    //local storage remove items                                                // doplnit
+   
+    //local storage remove items   
+    removeFromLocalStorage(id);                                             // doplnit
 };
 
 // editace jmena polozky pomoci ikonky edit
+
 function editItem(e) {
     const element = e.currentTarget.parentElement.parentElement;
 
@@ -138,26 +134,20 @@ function editItem(e) {
     submitBtn.textContent = "edit";
 };
 
-
-
-
-
 // ****** LOCAL STORAGE **********
 
 // nejdriv musi stahnout vse z local storage, protoze dalsi zaznam by to prepsal, takze stahne vse a prida novy na konec
 
 function getLocalStorageData() {
-                                    // kontroluje, jestli existuje a kdyz ne, tak nevrati null, ale prazdny retezec
+                            // ? kontroluje, jestli existuje a kdyz ne, tak nevrati null, ale prazdny retezec
     let records = localStorage.getItem("itemsList")?JSON.parse(localStorage.getItem('itemsList')):[]; 
-    console.log(records);
+    //console.log(records);
 
     return records;
 }
 
-function addToLocalStorage(id, value) {
-    
-    const input = inputItem.value;
-    const record = {id:id, value:input};
+function addToLocalStorage(id, input) {
+    const record = {id:id, value:input}; // pokud se jmeno a hodnota shoduji, tak staci jen 1, tady {id, value:input}
     let records = getLocalStorageData();
     console.log(record);
     
@@ -187,7 +177,7 @@ function editLocalStorage(id, value) {
             record.value = value
         }
         return record;
-    })
+    });
     localStorage.setItem('itemsList', JSON.stringify(records));
 }
 
@@ -207,20 +197,20 @@ localStorage.removeItem("item1"); */
 
 function setupRecords() {
     let records = getLocalStorageData();
-    console.log(records);
+    //console.log(records);
     
 
     if (records.length > 0) {
         records.forEach( function(record) {
-            createListOfRecords(record.id, record.value)
+            createRecord(record.id, record.value)
         })
-        listContainer.classList.add('.show-container');
+        listContainer.classList.add('show-container');
     }
-    console.log(records);
+    //console.log(records);
     
 }
 
-function createListOfRecords(id, input) {
+function createRecord(id, input) {
 
         // vytvoreni article elementu
           const newItem = document.createElement('article');
@@ -229,7 +219,7 @@ function createListOfRecords(id, input) {
         newItem.classList.add('grocery-item');
 
         // add id
-        const attr = document.createAttribute('data-id');
+        let attr = document.createAttribute('data-id');
         attr.value = id;
         // adding attribute to an element
         newItem.setAttributeNode(attr);
@@ -246,6 +236,7 @@ function createListOfRecords(id, input) {
                 </button>
                 </div> `;
         
+        // add event listener to bothe buttons
         const deleteBtn = newItem.querySelector('.delete-btn');
         const editBtn = newItem.querySelector('.edit-btn');
 
@@ -254,8 +245,4 @@ function createListOfRecords(id, input) {
         
         // append child
         list.appendChild(newItem);
-        
-        return newItem;
-
-
 }
