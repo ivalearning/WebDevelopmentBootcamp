@@ -25,22 +25,21 @@ btn.addEventListener('click', function(e) {
     //console.log(btn.dataset.selection);
 
     const selectionName = btn.dataset.selection;
-    const selection = SELECTIONS.find(selection => selection.name === selectionName)
-    makeSelection(selection);   
-    
+    const option = SELECTIONS.find(option => option.name === selectionName)
+    makeSelection(option);   
 });    
 })
 
-function makeSelection(selection) {
+function makeSelection(selected) {
     const computerSelection = randomSelection();
 
-    const youAreWinner = isWinner(selection, computerSelection);
-    const computerIsWinner = isWinner(computerSelection, selection);
-    //console.log(selection);
-    //console.log(computerSelection);
+    const youAreWinner = isWinner(selected, computerSelection);
+    const computerIsWinner = isWinner(computerSelection, selected);
+    //console.log(selected);
+    //console.log(computerSelected);
 
     addSelectionResult(computerSelection, computerIsWinner);
-    addSelectionResult(selection, youAreWinner);
+    addSelectionResult(selected, youAreWinner);
 
     if (computerIsWinner) incrementScore(compScore);
     if (youAreWinner)  incrementScore(yourScore);  
@@ -59,8 +58,8 @@ function addSelectionResult(selection, winner) {
 finalColumn.after(div);
 }
 
-function isWinner(selection1, selection2) {
-    return (selection1.beats === selection2.name)
+function isWinner(beats, selection2) {
+    return (beats.beats === selection2.name)
 }
 
 function randomSelection() {
