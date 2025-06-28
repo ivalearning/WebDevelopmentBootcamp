@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Blog</title>
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+    <div class="container">
+     <h1>All Posts</h1>
+     <a href="/posts/new" class="btn">Create a New Post</a>
+        <ul class="post-list">
+            <% postsDesc.forEach(post => { %>
+                <li class="post">
+                    <h2><%= post.id %>. <%= post.title %></h2>
+                    <p class="created"><%= post.created %></p>
+                    <p><%= post.content %></p>
+                    <a href="/posts/<%= post.id %>/edit" class="btn">Edit</a>
+                    <form action="/posts/<%= post.id %>?_method=DELETE" method="POST" style="display:inline;">
+                        <button type="submit" class="btn">Delete</button>
+                    </form>
+                </li>
+            <% }) %>
+        </ul>
+    </div>
+</body>
+</html>
