@@ -1,0 +1,22 @@
+// Update post                                ikdzy neposilam push nebo update date tak se zaradi na zacatek?
+
+//? datum cas
+
+// opacne poradi
+
+
+
+note
+/*
+const words = ["spray", "elite", "exuberant", "destruction", "present"];
+const result = words.filter((word) => word.length > 6);
+
+console.log(result);  // Expected output: Array ["exuberant", "destruction", "present"]
+
+function isPositive(value) {
+    return value > 0;
+}
+
+let filtered = [112, 52, 0, -1, 944].filter(isPositive);
+console.log(filtered);
+*/
