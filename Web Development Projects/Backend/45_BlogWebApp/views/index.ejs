@@ -14,7 +14,7 @@
             <% postsDesc.forEach(post => { %>
                 <li class="post">
                     <h2><%= post.id %>. <%= post.title %></h2>
-                    <p class="created"><%= post.created %></p>
+                    <p class="created">Created: <%= post.created %></p>
                     <p><%= post.content %></p>
                     <a href="/posts/<%= post.id %>/edit" class="btn">Edit</a>
                     <form action="/posts/<%= post.id %>?_method=DELETE" method="POST" style="display:inline;">
