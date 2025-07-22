@@ -27,7 +27,8 @@ let idCounter = 1;
 posts = getPosts();
 
 async function getPosts() {
-  await db.query("select * from posts order by createddate desc", (err,res) => {
+  const selectQuery = "select * from posts order by createddate desc";
+  await db.query(selectQuery, (err,res) => {
   if (err) {
     console.error("Error executing query", err.stack);  
   } else {
