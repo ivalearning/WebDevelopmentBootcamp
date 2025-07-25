@@ -1,0 +1,100 @@
+/* ------------ */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  height: 100%;
+}
+/* ------------ */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f8;
+    margin: 0;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+h1 {
+  width: 100%;
+  margin-bottom: 40px;
+}
+h2 {
+      margin-top: 0;
+      margin-left: 10px;
+      color: #333;
+    }
+p {
+    padding: 5px;
+}
+/* ------------ */
+.container {
+  height: 100%;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-container {
+    margin: 10px; 
+    max-width: 500px;
+}
+
+.card {
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    border-top: 1rem;
+}
+
+.info-label {
+    font-weight: bold ;
+}
+.info-value {
+      margin-left: 10px;
+      color: #222;
+}
+
+.title {
+    font-weight: 700 ;
+    font-size: 1.1rem;
+    padding-top: 20px;
+    
+}
+.btn {
+    max-width: 100px;
+    margin-top: 5px;
+    padding: 5px;
+    background-color: #222;
+    border-radius: 2px;
+    color: white;
+}
+
+.tag-error {
+  width: 100%;
+  text-align: center;
+}
+/* ------------ */
+.is-element-hidden {
+  display: none;
+}
+/* ------------ */
+@media (max-width: 620px) {
+  .container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 60px 20px;
+  }
+  
+}

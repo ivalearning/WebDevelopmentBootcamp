@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles/main.css">
+  <title>HTTP Status codes</title>
+  
+</head>
+
+<body>
+  <div class="container">
+    <h2>A random person's data</h2>
+
+   <%if (locals.returnedData) {%>
+  <div class="card">
+    <p class="title"> <%= returnedData.name.title %> </p>
+    <p>
+      <span class="info-label">Person's name:</span>
+      <%= returnedData.name.first %> <%= returnedData.name.last %></p>
+   
+    <p><span class="info-label">Gender: </span> <%= returnedData.gender %></p>
+    <p><span class="info-label">City: </span> <%= returnedData.location.city %></p>
+    <p><span class="info-label">State: </span> <%= returnedData.location.state %></p>
+    <p><span class="info-label">Country: </span><%= returnedData.location.country %></p>
+    <p><span class="info-label">e-mail: </span> <%= returnedData.email %></p>
+    <p><span class="info-label">Telephone: </span> <%= returnedData.cell %></p>
+  </div>
+  <div class="btn-container">
+    <button onClick="window.location.reload();" class="btn">Show next</button>
+  </div>
+      <%}%>
+
+      <%if (locals.error) {%>
+      <div id="tag-error" class="tag-error">
+        <%= error %>
+      </div>
+      <%}%>
+  </div>
+
+</body>
+
+</html>
