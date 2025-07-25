@@ -48,10 +48,12 @@ app.post("/", async (req, res) => {
   res.render("index.ejs", { returnedData: result[randomIndex],});
   } catch (error) {
     console.error("Failed to make request:", error.message);
+    console.log(error);
     res.render("index.ejs", {
      error: "No such activity."
+
     });
-   // console.log(error);
+    
     
 
   }
