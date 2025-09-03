@@ -14,13 +14,15 @@ const app = express();
 const port = 5353;
 app.use(express.static('public'));
 
-app.get("/", async (req, res) => {
 
+
+app.get("/", async (req, res) => {
+  try {
     const result = await axios.get("https://secrets-api.appbrewery.com/random" );
     console.log(result.data);
     //res.render("index.ejs", { secret: "Waiting for data...", user: "iva" });
     
-    try {
+    
     res.render("index.ejs", { 
         secret: result.data.secret, 
         user: result.data.username
@@ -29,6 +31,10 @@ app.get("/", async (req, res) => {
         console.log(error.response.data);    
         res.status(500);
         }
+      finally {
+          console.log("something");
+          
+      }
 });
 
 app.listen(port, () => {
