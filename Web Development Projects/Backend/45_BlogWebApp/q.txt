@@ -20,3 +20,24 @@ function isPositive(value) {
 let filtered = [112, 52, 0, -1, 944].filter(isPositive);
 console.log(filtered);
 */
+
+
+
+//const time = new Date().getHours();
+  //const datetime = date + " " + time;
+
+  
+
+
+  const date = new Date().toLocaleDateString('cs-CZ');
+
+   const utcDate = createdDate.getUTCDate();
+
+  console.log(utcDate);
+  vysledek je den napr. 18
+
+
+app.set('view engine', 'ejs');                        // view engine, the template engine to use = staticke ejs templaty, At runtime, the template engine replaces variables in a template file with actual values, and transforms the template into an HTML file sent to the client. This approach makes it easier to design an HTML page.
+app.use(express.static('public'));                    // built-in middleware function in Express, express.static(root, [options]), The root argument specifies the root directory from which to serve static assets.
+app.use(bodyParser.urlencoded({ extended: true }));   // A new body object containing the parsed data is populated on the request object after the middleware (i.e. req.body). This object will contain key-value pairs, where the value can be a string or array (when extended is false), or any type (when extended is true).
+app.use(methodOverride('_method'));                   // function to override the req.method property with a new value, default: ['POST']

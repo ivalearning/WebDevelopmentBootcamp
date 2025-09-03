@@ -1,6 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
-import methodOverride from "method-override"
+import methodOverride from "method-override";
 
 const app = express();
 const port = 5353;
@@ -46,9 +46,9 @@ app.get('/posts/:id/edit', (req, res) => {
 // Update post                                
 app.put('/posts/:id', (req, res) => {
 
-const post = posts.find(p => p.id == req.params.id);
-const updated = new Date();
-const created = new Date().toString();
+  const post = posts.find(p => p.id == req.params.id);
+  const updated = new Date();
+  const created = new Date().toString();
 
   post.title = req.body.title;
   post.content = req.body.content;
