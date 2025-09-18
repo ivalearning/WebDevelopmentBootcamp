@@ -1,0 +1,113 @@
+import React, {useState} from "react";
+
+function App() {
+
+  const [fullName, setFullName] = useState(
+    {
+      fName: "",    // jmeno input pole
+      lName: ""
+    }
+  );
+  
+function handleChange(event) {        // jedna se syntetic event
+
+  const {value, name} = event.target; // destructuring nahrazuje (const newValue = event.target.value; a const inputName = event.target.name; )
+
+  setFullName(previousValue => {        // nepouzivat event.atd v set funkci, vyhodi syntetic event error
+  if (name === "fName") {
+    return { 
+      fName: value,
+      lName: previousValue.lName
+    }
+  } else if (name === "lName") {
+    return {
+      fName: previousValue.fName,
+      lName: value
+    }
+  }  
+} )
+event.preventDefault();
+}
+
+  return (
+    <div className="container">
+      <h1>Hello {fullName.fName} {fullName.lName}</h1>
+      <form>
+        <input name="fName" placeholder="First Name" onChange={handleChange}  />
+        <input name="lName" placeholder="Last Name" onChange={handleChange} />
+        <button>Submit</button>
+      </form>
+    </div>
+  );
+}
+
+//value={fullName.fName}  value={fullName.lName}
+
+export default App;
+
+
+// pouzivam 2 funkce, ale da se pouzit jen 1 a misto default hodnoty null vytvorit objekt 
+// a do setName poslat funkci, viz nize prepsane
+//-----------------------------------------------------------------------------------------
+
+// function App() {
+
+//   const [name, setName] = useState("");
+//   const [surname, setSurname] = useState("");
+
+// function addName(event) {
+//   setName(event.target.value);
+//   event.preventDefault();
+// }
+// function addSurname(event) {
+//   setSurname(event.target.value);
+//   event.preventDefault();
+// }
+
+//   return (
+//     <div className="container">
+//       <h1>Hello {name} {surname}</h1>
+//       <form>
+//         <input name="fName" placeholder="First Name" onChange={addName} value={name} />
+//         <input name="lName" placeholder="Last Name" onChange={addSurname} value={surname}/>
+//         <button>Submit</button>
+//       </form>
+//     </div>
+//   );
+// }
+
+
+
+
+// za pouziti jen 1 hook a 1 funkce, ktere obslouzi obe input pole
+//-----------------------------------------------------------------------------------------
+
+// function App() {
+
+//   const [fullName, setFullName] = useState(
+//     {
+//       fName: "",    // jmeno input pole
+//       lName: ""
+//     }
+//   );
+  
+// function handleChange(event) {
+
+//   const newValue = event.target.value;
+//   const inputName = event.target.name;    // jmeno input pole, ze ktereho prichazi zmena
+
+//   setFullName(previousValue => {
+//   if (inputName === "fName") {
+//     return { 
+//       fName: newValue,
+//       lName: previousValue.lName
+//     }
+//   } else if (inputName === "lName") {
+//     return {
+//       fName: previousValue.fName,
+//       lName: newValue
+//     }
+//   }  
+// } )
+// event.preventDefault();
+// }
