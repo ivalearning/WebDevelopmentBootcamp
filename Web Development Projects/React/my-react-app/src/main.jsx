@@ -1,7 +1,8 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'; 
 import  './styles.css';
-import App from '../components/App';
+import App from './components/App';
+
 
 //ReactDOM.render(  <App /> , document.getElementById("root"));
 
@@ -11,6 +12,15 @@ createRoot(document.getElementById('root')).render(
     <App />
   </StrictMode>,
 )
+
+
+
+
+
+
+
+
+
 
 
 //1. Create a new React app.

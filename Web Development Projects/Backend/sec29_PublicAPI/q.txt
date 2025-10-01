@@ -1,0 +1,6 @@
+how to deal with vulnerabilities?
+
+11 packages are looking for funding
+  run `npm fund` for details
+
+11 vulnerabilities (4 low, 2 moderate, 4 high, 1 critical)
