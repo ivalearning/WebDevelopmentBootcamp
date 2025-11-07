@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+
 function CreateArea(props) {
 
     const emptyInputs = {title: "", content: ""};
@@ -18,35 +19,36 @@ function CreateArea(props) {
     }
 
     function submitNote(event) {
-      props.whenClicked(note)
       event.preventDefault();
+      props.whenClicked(note)
       setNote(emptyInputs);
     }
-
-  return (
-    <div>
-      <form >
-        <input name="title" placeholder="Title" onChange={handleChange} type="text" value={note.title}/>
-        <textarea name="content" placeholder="Take a note..." rows="3" onChange={handleChange} type="text" value={note.content}/>
-        <button onClick={submitNote}>Add</button>
-      </form>
-    </div>
-  );
-}
 
 //   return (
 //     <div>
 //       <form >
 //         <input name="title" placeholder="Title" onChange={handleChange} type="text" value={note.title}/>
 //         <textarea name="content" placeholder="Take a note..." rows="3" onChange={handleChange} type="text" value={note.content}/>
-//         <button onClick={(event) => {
-//          props.whenClicked(note)
-//          event.preventDefaults()
-//          setNote(emptyInputs)
-//           }}>Add</button>
+//         <button onClick={submitNote}>Add</button>
 //       </form>
 //     </div>
 //   );
 // }
+
+  return (
+    <div>
+      <form >
+        <input name="title" placeholder="Title" onChange={handleChange} type="text" value={note.title}/>
+        <textarea name="content" placeholder="Take a note..." rows="3" onChange={handleChange} type="text" value={note.content}/>
+        <button onClick={(event) => {
+         props.whenClicked(note)
+         event.preventDefaults()
+         setNote(emptyInputs)
+          }}>Add</button>
+      </form>
+    </div>
+  );
+}
+
 
 export default CreateArea;
