@@ -8,7 +8,7 @@ const Question = () => {
     const currentQuestion = quizState.questions[quizState.currentQuestionIndex];
     return     (
         <div>
-            <div className="question">{currentQuestion.question}</div>
+            <div className="question">{currentQuestion?.question}</div>
             <div className="answers">
                 {
                 quizState.answers.map((answer, index) => (
