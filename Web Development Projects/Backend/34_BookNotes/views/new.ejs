@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>New book</title>
+    <link rel="stylesheet" href="/styles/main.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Add a New Book</h1>
+      <form action="/books" method="POST">
+        <label for="author">Author:</label>
+        <input type="text" name="author" maxlength="50" required />
+        <label for="title">Book title:</label>
+        <input type="text" name="title" maxlength="50" size="50" required />
+        <label for="isbn">ISBN:</label>
+        <input
+          type="text"
+          name="isbn"
+          placeholder=""
+          minlength="13"
+          maxlength="13"
+          required
+        /><br /><br />
+        <textarea
+          name="description"
+          placeholder="Add description"
+          maxlength="300"
+        ></textarea
+        ><br />
+        <button type="submit" class="create-btn">Create</button>
+      </form>
+      <a href="/">Back</a>
+    </div>
+  </body>
+</html>

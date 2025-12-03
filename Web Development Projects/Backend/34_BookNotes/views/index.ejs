@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">   
+    <title>Notes for my Book collection</title>
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="controls">
+        <a href="/books/new" class="add-btn">Add a New Book</a>
+    </div>
+    <h1>My books library </h1>
+    <div>
+    <form method="get" action="/">
+        <label for="sort-listbox">Sort books by:</label>
+        <select name="sortOption" id="sort-listbox" >
+            <option value="title" <%= sortOption === 'title' ? 'selected' : "" %> >Title</option>
+            <option value="date" <%= sortOption === 'date' ? 'selected' : "" %> >Date</option>
+            <option value="rating"<%= sortOption === 'rating' ? 'selected' : "" %> >Rating</option>       
+        </select>
+         <button type="submit">Sort</button>
+    </form>
+    </div>
+        <section>
+            <ul class="book-list" >
+                <% books.forEach(book => { %>
+                    <li class="abook" >
+                        <img 
+                        class="cover" 
+                        src="https://covers.openlibrary.org/b/isbn/<%=book.isbn%>-M.jpg" 
+                        width="60" 
+                        height="60" 
+                        alt="Book Cover for <%=book.title%>" 
+                        onerror="this.onerror=null;this.src='/images/nopreview.png';"/>
+
+                        <h2> <%= book.title %></h2>
+                        <p class="created">Date read: <%= book.created %></p>
+                            <small>
+                                My rating: <b><%= book.rating %></b>  out of 10.
+                            </small>
+                        <p><%= book.description %></p>
+                        <div class="links">
+                            <a href="/books/<%= book.id %>/edit">Add/view notes</a>
+                            <form action="/books/<%= book.id %>?_method=DELETE" method="POST" >
+                                <button type="submit" class="btn">Delete</button>
+                            </form>                         
+                        </div>                     
+                </li>
+                <% }) %>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>

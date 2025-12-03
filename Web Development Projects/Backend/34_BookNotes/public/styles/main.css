@@ -1,0 +1,277 @@
+:root {
+  --body-color:#e9edfc;
+  --bg-color: #f9f9f9;
+  --text-color: #333;
+  --light-text-color: #c0bebe;
+  --blue-text-color:#252e7a;
+  --card-bg: #fff;
+  --card-border: #ddd;
+  --btn-bg-color:#252e7a;
+  --btn-color: #fff;
+  --btn-color-dark:#252e7a;
+  --hdr-color:#252e7a;
+  --link-color:#252e7a;
+  --input-bg-color: #c6cce444;
+}
+
+body  {
+  font-family: Arial, sans-serif;
+  background-color: var(--body-color);
+  background-image: url("https://www.transparenttextures.com/patterns/graphy.png");
+  color: var(--text-color);
+  margin: 2rem;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+h1 {
+  color: var(--hdr-color);
+  font-weight: 700;
+}
+
+h2 {
+  display: block;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  display: block;
+}
+ul img {
+  float: left;
+  margin-right: 30px;
+  margin-bottom: 10px;
+}
+
+a {
+  color: var(--link-color);
+}
+
+.container {
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.controls a  {
+  padding: 0.7rem;
+  border: 1px solid var(--card-border);
+  border-radius: 5px;
+  font-size: 0.9rem;
+  margin: 10px 0;
+  outline: none;
+  background-color: var(--link-color);
+}
+
+input, textarea, select {
+  font-family: Arial, sans-serif;
+  border: 1px solid;
+  line-height: 1.5;
+  width: 100%;
+  box-sizing: border-box;
+  border: 2px solid var(--card-border);
+  border-radius: 4px;
+  background-color: var(--card-bg);
+  padding: 0.4rem 0.6rem;  
+  margin-bottom: 10px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+input {
+  height: 30px; 
+  width: 100%;
+} 
+
+textarea {
+  height: 150px;
+  resize: none;
+  width: 100%;
+}
+
+select {
+  width: 15%;
+}
+
+input[type=text]:focus {
+  background-color: var(--input-bg-color);
+  border: 3px solid var(--card-border);
+}
+
+input[type="range"] {
+  width: 400px;
+  margin: 0;
+}
+input[type="radio"] {
+  appearance: none;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--card-border);
+  transition: 0.2s all linear;
+  margin-right: 5px;
+  position: relative;
+  top: 4px;
+}
+input[type="radio"]:checked {
+  background-color: var(--btn-color-dark);
+}
+
+div .radiobuttons {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 5px;
+}
+
+.radiobuttons label {
+  margin-right: 15px;
+  line-height: 32px;
+}
+
+fieldset {
+  border: 1px solid;
+}
+
+legend {
+  background-color: var(--btn-color-dark);
+  color: white;
+  padding: 3px 15px;
+  border: 0;
+  font-size: 1.1rem;
+  margin-right: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  margin-top: 8px;
+  font-size: 1.1rem;
+  line-height: 1.2;
+}
+
+datalist {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  writing-mode: horizontal-tb;
+  width: 400px;
+  margin-bottom: 25px;
+}
+
+option {
+  padding: 0;
+  font-size: 0.8rem;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+  padding: 3px 10px;
+  color: var(--btn-color);
+  transition: background 0.3s ease;
+  background-color: var(--btn-bg-color);
+  border-radius: 5px;
+  font-weight: 500;
+  margin: 5px 10px;
+}
+
+button:hover {
+  font-weight: 700;
+  background-color: var(--btn-color-dark);
+}
+
+button:focus {
+  outline: 3px solid rgb(141, 236, 141);
+}
+
+.create-btn {
+  display: inline-block;
+}
+
+.add-btn {
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+  padding: 10px 16px;
+  color: var(--btn-color);
+  transition: background 0.3s ease;
+  background-color: var(--btn-bg-color);
+  border-radius: 5px;
+  font-weight: 500;
+  margin: 10px 5px;
+  margin-left: 50px;
+  text-decoration: none;
+  display: inline-block;
+  margin: 10px 5px;
+}
+
+.add-btn:hover {
+  font-weight: 700;
+  background-color: var(--btn-color-dark);
+}
+
+.book-list {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.abook {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, background 0.3s ease, border 0.3s ease;
+}
+
+.abook:hover { transform: translateY(-4px); }
+.abook img { max-width: 100%; border-radius: 4px; transition: transform 0.3s ease; }
+.abook img:hover { transform: scale(1.05); }
+.abook h2 { font-size: 1.1rem; margin: 0.5rem 0; color: var(--hdr-color);}
+.abook h2 a { text-decoration: none; color: var(--text-color); }
+.abook small { display: block; margin-bottom: 0.5rem; color: var(--blue-text-color) }
+.abook p { line-height: 1.4; }
+li .abook {  display: flex;  flex-direction: column;  align-content: space-between;}
+
+.created {
+  color: var(--light-text-color);
+  font-size: smaller;
+}
+
+.cover {
+  width: 100%;
+  height: 130px;
+  width: auto;
+  border-radius: 4px;
+}
+
+div .links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.links form {
+  display:inline-block;
+}
+
+
+
+
+@media (min-width: 600px) {
+  .book-list { grid-template-columns: repeat(1, 1fr); }
+}
+@media (min-width: 900px) {
+  .book-list { grid-template-columns: repeat(2, 1fr); }
+}
+
+ 
+
