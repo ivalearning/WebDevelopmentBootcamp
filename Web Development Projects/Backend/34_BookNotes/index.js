@@ -24,9 +24,6 @@ const db = new pg.Client({
 
 db.connect();
 
-let books = [];
-
-books = await getBooksOrderBy();
 
 async function getBooksOrderBy(sortOption = "date") {
   let orderBy = "createddate DESC";
@@ -49,6 +46,11 @@ async function getBooksOrderBy(sortOption = "date") {
   return result.rows;
 }
 
+async function getBookById(id) {
+  const result = await db.query("SELECT * FROM books WHERE id = $1", [id]);
+  return result.rows[0]; 
+}
+
 //Home - List all books
 app.get("/", async (req, res) => {
   try {
@@ -67,7 +69,7 @@ app.get("/books/new", (req, res) => {
 });
 
 // Create new entry
-app.post("/books", (req, res) => {
+app.post("/books", async (req, res) => {
   try {
     const isbn = req.body.isbn;
     const title = req.body.title;
@@ -89,13 +91,13 @@ app.post("/books", (req, res) => {
     const createdDate = new Date();
     const created = `${createdDate.getDate()}-${createdDate.getMonth() + 1}-${createdDate.getFullYear()}`;
 
-    db.query(
+    await db.query(
       "INSERT INTO books (isbn, title, author, description, created, createddate) VALUES ($1, $2, $3, $4, $5, $6)",
       [isbn, title, author, description, created, createdDate]
     );
-   
+    
     res.redirect("/");
-    console.log(books);
+
   } catch (err) {
     console.error(err);
     res.status(500).send("Error inserting book.");
@@ -106,8 +108,13 @@ app.post("/books", (req, res) => {
 app.get("/books/:id/edit", async (req, res) => {
   try {
     console.log(req.params.id);
+    const id = req.params.id;
+    const result = await db.query("SELECT * FROM books WHERE id = $1", [id]);
+    const book = result.rows[0];
+    if (!book) {
+      return res.status(404).send("Book not found.")
+    }
 
-    const book = books.find((p) => p.id == req.params.id);
     res.render("edit.ejs", { book });
   } catch (err) {
     console.error(err);
@@ -117,19 +124,16 @@ app.get("/books/:id/edit", async (req, res) => {
 
 // Add rating and my notes
 app.put("/books/:id", async (req, res) => {
-  const book = books.find((p) => p.id == req.params.id);
-  const id = req.params.id;
-  const rating = req.body.rating;
-  const review = req.body.review;
-
   try {
-    await db.query("update books SET rating=$1, review=$2  where id = $3", [
+    const id = req.params.id;
+    const rating = req.body.rating;
+    const review = req.body.review;
+    await db.query("UPDATE books SET rating=$1, review=$2  where id = $3", [
       rating,
       review,
       id,
     ]);
 
-    books = await getBooksOrderBy();
     res.redirect("/");
 
   } catch (err) {
@@ -144,7 +148,6 @@ app.delete("/books/:id", async (req, res) => {
     const id = req.params.id;
 
     await db.query("DELETE FROM books WHERE id = $1", [id]);
-    books = await getBooksOrderBy();
     res.redirect("/");
   } catch (err) {
     console.error(err);

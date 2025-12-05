@@ -22,7 +22,12 @@
          <button type="submit">Sort</button>
     </form>
     </div>
-        <section>
+        <section>     
+            <% if (books.length === 0) { %>
+            <p>No books yet...</p>
+            <% } else { %>
+            <!-- render all -->
+            <% } %>
             <ul class="book-list" >
                 <% books.forEach(book => { %>
                     <li class="abook" >
@@ -37,7 +42,11 @@
                         <h2> <%= book.title %></h2>
                         <p class="created">Date read: <%= book.created %></p>
                             <small>
-                                My rating: <b><%= book.rating %></b>  out of 10.
+                                <% if (book.rating) { %>
+                                    My rating: <b><%= book.rating %></b> out of 10.
+                                <% } else { %>
+                                    No rating yet.
+                                <% } %>
                             </small>
                         <p><%= book.description %></p>
                         <div class="links">

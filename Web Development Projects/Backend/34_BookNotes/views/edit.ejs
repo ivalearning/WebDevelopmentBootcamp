@@ -32,15 +32,13 @@
           <option value="10" label="10"></option>
         </datalist>
         <label for="review">My thoughts</label>
-        <textarea
-          name="review"
-          id="review"
-          placeholder="My notes"
-          maxlength="500"
-          required
-        >
-<%= book.review %></textarea
-        ><br />
+        <% if (book.review) { %>
+          <textarea name="review" id="review" placeholder="My notes" maxlength="500" required><%= book.review %></textarea>
+          <br />
+        <% } else { %>
+          <textarea name="review" id="review" placeholder="My notes" maxlength="500" required>My notes not added yet.</textarea>
+          <br /> 
+        <% } %>
         <button type="submit" class="create-btn">Update</button>
       </form>
       <a href="/">Back</a>
