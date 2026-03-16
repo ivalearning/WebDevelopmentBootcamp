@@ -6,4 +6,5 @@ function App() {
   return <CaseLogPage />;
 }
 
+
 export default App;

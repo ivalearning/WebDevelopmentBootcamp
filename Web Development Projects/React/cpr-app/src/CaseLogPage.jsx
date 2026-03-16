@@ -13,6 +13,7 @@ export default function CaseLogPage() {
   direction: "asc",
 });
 
+
   const cases = [
     {
       id: 205534,
